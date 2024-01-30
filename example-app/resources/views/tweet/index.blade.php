@@ -10,14 +10,14 @@
         <h1>つぶやきアプリ</h1>
         <div>
             <p>投稿フォーム</p>
-            <from action="{{ route('tweet.create') }}" method="post">
+            <form action="{{ route('tweet.create') }}" method="post">
                 @csrf
                 <label for="tweet-content">つぶやき</label>
                 <span>14文字まで</span>
-                <textarea name="tweet" id="tweet-content" type="text" placeholder="つぶやきを入力"></textarea>
+                <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
                 <button type="submit">投稿</button>
                 
-            </from>
+            </form>
         </div>
     </body>
 </html>
