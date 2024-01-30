@@ -16,6 +16,9 @@
                 <span>14文字まで</span>
                 <textarea name="tweet" id="tweet-content" type="text" placeholder="つぶやきを入力"></textarea>
                 <button type="submit">投稿</button>
+                @error('tweet')
+                <p style="color: red;">{{ $message }}</p>
+                @enderror
             </from>
         </div>
     </body>
