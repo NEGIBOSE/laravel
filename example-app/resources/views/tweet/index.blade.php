@@ -9,9 +9,14 @@
     <body>
         <h1>つぶやきアプリ</h1>
         <div>
-            @foreach($tweets as $tweet)
-                <p>{{ $tweet-> content }}</p>
-            @endforeach
+            <p>投稿フォーム</p>
+            <from action="{{ route('tweet.create') }}" method="post">
+                @csrf
+                <label for="tweet-content">つぶやき</label>
+                <span>14文字まで</span>
+                <textarea name="tweet" id="tweet-content" type="text" placeholder="つぶやきを入力"></textarea>
+                <button type="submit">投稿</button>
+            </from>
         </div>
     </body>
 </html>
