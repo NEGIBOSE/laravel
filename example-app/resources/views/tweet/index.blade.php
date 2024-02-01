@@ -14,7 +14,7 @@
                 @csrf
                 <label for="tweet-content">つぶやき</label>
                 <span>140文字まで</span>
-                <textarea class="@error('tweet') is-invalid @enderror" id="tweet" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
+                <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
                 <button type="submit">投稿</button>
                 @error('tweet')
                     <p style="color: red;">{{ $message }}</p>
