@@ -36,9 +36,6 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            Route::get('/sample/{id}', [\App\Http\Controllers\Sample\IndexController::class, 'showId']);
-        
-            Route::get('/tweet', \App\Http\Controllers\Tweet\IndexController::class);
         });
     }
 }
