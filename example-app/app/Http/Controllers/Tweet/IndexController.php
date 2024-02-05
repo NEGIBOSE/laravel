@@ -19,9 +19,10 @@ class IndexController extends Controller
         if (is_null($tweet)) {
             throw new NotFoundHttpException('存在しないつぶやきです');
         }
-        dd($tweetId);
-        $tweets = Tweet::orderBy('created_at', 'DESC')->get();
-        return view('tweet.index')
-            ->with('tweets', $tweets);
+        return view('tweet.update')->with('tweet', $tweet);
+        // dd($tweetId);
+        // $tweets = Tweet::orderBy('created_at', 'DESC')->get();
+        // return view('tweet.index')
+        //     ->with('tweets', $tweets);
     }
 }
