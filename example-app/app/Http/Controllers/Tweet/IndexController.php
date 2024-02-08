@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Tweet;
 use App\Http\Controllers\Controller;
 use App\Models\Tweet;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+// use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class IndexController extends Controller
 {
@@ -14,15 +14,8 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $tweetId = (int) $request->route('tweetId');
-        $tweet = Tweet::where('id', $tweetId)->first();
-        if (is_null($tweet)) {
-            throw new NotFoundHttpException('存在しないつぶやきです');
-        }
-        return view('tweet.update')->with('tweet', $tweet);
-        // dd($tweetId);
-        // $tweets = Tweet::orderBy('created_at', 'DESC')->get();
-        // return view('tweet.index')
-        //     ->with('tweets', $tweets);
+        $tweets = Tweet::orderBy('created_at', 'DESC')->get();
+        return view('tweet.index')
+            ->with('tweets', $tweets);
     }
 }
