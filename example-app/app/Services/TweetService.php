@@ -37,9 +37,9 @@ class TweetService
             $tweet->content = $content;
             $tweet->save();
             foreach ($images as $images) {
-                Storage::putFile('public/images', $images);
+                $name = $this->imageManager->save($image);
                 $imageModels = new Image();
-                $imageModels->name = $image->hashName();
+                $imageModels->name = $name;
                 $imageModels->save();
                 $tweet->images()->attach($imageModels->id);
             }
