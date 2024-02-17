@@ -7,9 +7,12 @@ use Carbon\Carbon;
 use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\ImageUpload\ImageManagerInterface;
 
 class TweetService
 {
+    public function __construct(private ImageManagerInterface $imageManager)
+    {}
     public function getTweets()
     {
         return Tweet::with('images')->orderBy('created_at', 'DWSC')->get();
