@@ -31,7 +31,7 @@ class TweetService
 
     public function saveTweet(int $userId, string $content, array $images)
     {
-        DB:transaction(function () use ($userId, $content, $images) {
+        DB::transaction(function () use ($userId, $content, $images) {
             $tweet = new Tweet;
             $tweet->user_id = $userId;
             $tweet->content = $content;
@@ -44,5 +44,18 @@ class TweetService
                 $tweet->images()->attach($imageModels->id);
             }
         });
+    }
+    public function deleteTweet(int $tweetId)
+    {
+        DB::transaction(function () use ($tweetId) {
+            $tweet = Tweet::where('id', $tweetId)->firstOrFail;
+            $tweet->images()->each(function ($image) use ($tweet) {
+                $this->imageManager->delete($image->name);
+                $tweet->image()->detach($image->id);
+                $image->delete();
+            });
+            $tweet->delete();
+            }
+        );
     }
 }
