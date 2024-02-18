@@ -5,6 +5,7 @@ namespace Tests\Unit\Services;
 use PHPUnit\Framework\TestCase;
 use App\Services\TweetService;
 use Mockery;
+use App\Models\ImageUpload\ImageManagerInterface;
 
 class TweetServiceTest extends TestCase
 {
@@ -17,7 +18,7 @@ class TweetServiceTest extends TestCase
         $tweetService = new TweetService(); // TweetServiceのインスタンスを作成
 
         $mock = Mockery::mock('alias:App\Models\Tweet');
-        $mock->shouldReceive('where->first')->andReturn((object)[
+        $mock->shouldReceive('where->first')->andREturn((object)[
             'id' => 1,
             'user_id' => 1
         ]);
