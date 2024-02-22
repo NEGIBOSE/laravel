@@ -12,6 +12,9 @@
         "laravel-vite-plugin": "^1.0.0",
         "vite": "^5.0.0"
     },
+    "name": "professional-web-programing-1",
+    "description": "a really cool app",
+    "version": "1.0.0",
     "engines": {
         "node": "20.11.1"
     }
