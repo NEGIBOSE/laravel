@@ -14,6 +14,7 @@ class Kernel extends HttpKernel
      * @var array<int, class-string|string>
      */
     protected $middleware = [
+        // アプリケーション全体に作用させたいミドルウェアを登録するときはここ
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
@@ -21,6 +22,12 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+    ];
+
+    protected $routemiddleware = [
+        // 特定のルートのみに作用させたいミドルウェアを登録するときはここ
+        // \App\Http\Middleware\TrustHosts::class,
+        'sample' => \App\Http\Middleware\SampleMiddleware::class // 例
     ];
 
     /**

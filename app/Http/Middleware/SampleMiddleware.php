@@ -15,6 +15,8 @@ class SampleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // 前に処理を挟みたいときはここ
         return $next($request);
+        // 後に処理を挟みたいときはここ
     }
 }
