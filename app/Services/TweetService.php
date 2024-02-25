@@ -15,7 +15,7 @@ class TweetService
     {}
     public function getTweets()
     {
-        return Tweet::with('images')->orderBy('created_at', 'DWSC')->get();
+        return Tweet::with('images')->orderBy('created_at', 'DESC')->get();
     }
 
     //自分のTweetかどうかをチェックするメソッド
