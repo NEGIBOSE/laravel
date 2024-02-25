@@ -54,4 +54,4 @@ $response = $kernel->handle(
 
 $kernel->terminate($request, $response);
 
-//仮編集
+//localhostエラー完了
