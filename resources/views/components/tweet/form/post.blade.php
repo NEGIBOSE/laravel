@@ -7,7 +7,7 @@
     <form action="{{ route('tweet.create') }}" method="post">
         @csrf
         <label for="tweet-content">つぶやき</label>
-        <span>140文字までまで</span>
+        <span>140文字まで</span>
         <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
         <button type="submit">投稿</button>
         @error('tweet')
