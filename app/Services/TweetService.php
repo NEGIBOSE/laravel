@@ -7,12 +7,12 @@ use Carbon\Carbon;
 use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use App\Models\ImageUpload\ImageManagerInterface;
+// use App\Models\ImageUpload\ImageManagerInterface;
 
 class TweetService
 {
-    public function __construct(private ImageManagerInterface $imageManager)
-    {}
+    // public function __construct(private ImageManagerInterface $imageManager)
+    // {}
     public function getTweets()
     {
         return Tweet::with('images')->orderBy('created_at', 'DESC')->get();
@@ -37,25 +37,25 @@ class TweetService
             $tweet->content = $content;
             $tweet->save();
             foreach ($images as $images) {
-                $name = $this->imageManager->save($image);
+                Storage::putFile('public/images', $images);
                 $imageModels = new Image();
-                $imageModels->name = $name;
+                $imageModels->name = $image->hashName();
                 $imageModels->save();
                 $tweet->images()->attach($imageModels->id);
             }
         });
     }
-    public function deleteTweet(int $tweetId)
-    {
-        DB::transaction(function () use ($tweetId) {
-            $tweet = Tweet::where('id', $tweetId)->firstOrFail;
-            $tweet->images()->each(function ($image) use ($tweet) {
-                $this->imageManager->delete($image->name);
-                $tweet->image()->detach($image->id);
-                $image->delete();
-            });
-            $tweet->delete();
-            }
-        );
-    }
+    // public function deleteTweet(int $tweetId)
+    // {
+    //     DB::transaction(function () use ($tweetId) {
+    //         $tweet = Tweet::where('id', $tweetId)->firstOrFail;
+    //         $tweet->images()->each(function ($image) use ($tweet) {
+    //             $this->imageManager->delete($image->name);
+    //             $tweet->image()->detach($image->id);
+    //             $image->delete();
+    //         });
+    //         $tweet->delete();
+    //         }
+    //     );
+    // }
 }
