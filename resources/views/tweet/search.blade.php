@@ -44,7 +44,7 @@
         <div class="tabs">
           <ul class="tab-links category_tab">
             <li>
-              <a href="#tab1">
+              <a href="#tab1" class="category-icon" data-category="magic">
                 <div class="icon_magic icon">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -57,7 +57,7 @@
               </a>
             </li>
             <li>
-              <a href="#tab2">
+              <a href="#tab2" class="category-icon" data-category="human">
                 <div class="icon_human icon">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -70,7 +70,7 @@
               </a>
             </li>
             <li>
-              <a href="#tab3">
+              <a href="#tab3" class="category-icon" data-category="love">
                 <div class="icon_love icon">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -83,7 +83,7 @@
               </a>
             </li>
             <li>
-              <a href="#tab4">
+              <a href="#tab4" class="category-icon" data-category="comedy">
                 <div class="icon_laugh icon">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -96,7 +96,7 @@
               </a>
             </li>
             <li>
-              <a href="#tab5">
+              <a href="#tab5" class="category-icon" data-category="horror">
                 <div class="icon_magic icon">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -298,6 +298,9 @@ function createClickHandler(thumbnail, title) {
     // ページ遷移せずに画像URLをregister.htmlに表示させる
     const registerImage = document.getElementById("registerImage");
     registerImage.src = selectedImageUrl;
+    // reading.htmlにも画像URLを引き渡す
+    const readingImage = document.getElementById("readingImage");
+    readingImage.src = selectedImageUrl;
   };
 }
 
@@ -329,6 +332,48 @@ document.addEventListener("DOMContentLoaded", function () {
         link.classList.remove("active");
       });
       this.classList.add("active");
+    });
+  });
+});
+
+// カテゴリーを処理する関数
+function processCategory(category) {
+  switch (category) {
+    case "magic":
+      return "SFを選択しました";
+    case "human":
+      return "ノンフィクションを選択しました";
+    case "love":
+      return "ラブを選択しました";
+    case "comedy":
+      return "コメディを選択しました";
+    case "horror":
+      return "ホラーを選択しました";
+    default:
+      return "選択されませんでした";
+  }
+}
+
+// ページの読み込みが完了したときに実行
+document.addEventListener("DOMContentLoaded", function () {
+  // カテゴリーアイコンの要素を取得
+  var categoryIcons = document.querySelectorAll(".category-icon");
+
+  // 各カテゴリーアイコンがクリックされたときのイベントリスナーを追加
+  categoryIcons.forEach(function (icon) {
+    icon.addEventListener("click", function (event) {
+      // デフォルトの動作を無効化
+      event.preventDefault();
+
+      // 関連するカテゴリーを取得
+      var category = this.getAttribute("data-category");
+
+      // クリックされたアイコンのSVG要素の内容を取得してセッションストレージに保存
+      var svgContent = this.querySelector("svg").outerHTML;
+      sessionStorage.setItem("selectedIcon", svgContent);
+
+      // 選択されたカテゴリーを処理する関数を呼び出し、結果をalertで表示する
+      alert(processCategory(category));
     });
   });
 });
