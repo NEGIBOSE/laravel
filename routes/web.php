@@ -53,4 +53,8 @@ Route::get('/home/search', \App\Http\Controllers\Tweet\Search\SearchController::
 Route::get('/home/register', \App\Http\Controllers\Tweet\Register\RegisterController::class)
 ->name('tweet.register');
 
+//読み聞かせ中
+Route::get('/home/reading', \App\Http\Controllers\Tweet\Reading\ReadingController::class)
+->name('tweet.reading');
+
 require __DIR__.'/auth.php';

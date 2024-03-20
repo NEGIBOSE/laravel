@@ -31,7 +31,7 @@
       <div class="home_select">
         <div class="home_select_u">
           <div class="select_text bg_red">
-            <a href="{{ route('search.search') }}">読み聞かせ</a>
+            <a href="{{ route('tweet.search') }}">読み聞かせ</a>
           </div>
           <div class="select_text bg_yellow">
             <a href="#">本棚</a>
@@ -44,7 +44,28 @@
     </main>
     <footer>&copy; 2024 My portfolio</footer>
     <!-- JavaScriptファイルの読み込み -->
-    <script src="{{ mix('js/app.js') }}"></script>
+<script>
+    window.onload = function () {
+        var images = [
+        "/images/picture1.png",
+        "/images/picture2.png",
+        "/images/picture3.png",
+        "/images/picture4.png",
+        "/images/picture5.png",
+        "/images/picture6.png",
+        "/images/picture7.png",
+        "/images/picture8.png",
+        "/images/picture9.png",
+    ];
+
+  var randomIndex = Math.floor(Math.random() * images.length);
+  var randomImage = images[randomIndex];
+
+  var img = document.getElementById("myImage");
+  img.src = randomImage;
+};
+
+</script>
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
