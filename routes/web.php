@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
 
 //検索
 Route::get('/home/search', \App\Http\Controllers\Tweet\Search\SearchController::class)
-->name('search.search');
+->name('tweet.search');
 
 // //登録
 // Route::get('/home/register', \App\Http\Controllers\Home\Register\RegisterController::class)
