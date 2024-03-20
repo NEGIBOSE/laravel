@@ -49,8 +49,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/home/search', \App\Http\Controllers\Tweet\Search\SearchController::class)
 ->name('tweet.search');
 
-// //登録
-// Route::get('/home/register', \App\Http\Controllers\Home\Register\RegisterController::class)
-// ->name('register.register');
+//登録
+Route::get('/home/register', \App\Http\Controllers\Tweet\Register\RegisterController::class)
+->name('tweet.register');
 
 require __DIR__.'/auth.php';
