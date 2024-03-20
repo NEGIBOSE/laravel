@@ -41,4 +41,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// //ホーム
+// Route::get('/home', \App\Http\Controllers\Home\IndexController::class)
+// ->name('home.index');
+
+//検索
+Route::get('/home/search', \App\Http\Controllers\Tweet\Search\SearchController::class)
+->name('search.search');
+
+// //登録
+// Route::get('/home/register', \App\Http\Controllers\Home\Register\RegisterController::class)
+// ->name('register.register');
+
 require __DIR__.'/auth.php';
