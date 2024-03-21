@@ -20,18 +20,15 @@
     <header class="header">
         <div class="title">Chara-Books</div>
         <div class="logout">
-        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-    ログアウト
-</a>
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
-
-
-
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                ログアウト
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
         </div>
         <div class="signin">
-            <a href="{{ route('register') }}">いいいい</a>
+            <a href="{{ route('register') }}">サインイン</a>
         </div>
     </header>
     <main class="home">
