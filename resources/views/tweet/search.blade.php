@@ -313,7 +313,7 @@
             <a href="{{ route('tweet.index') }}">HOME</a>
           </div>
           <div class="select_text select_register bg_red">
-            <a href="{{ route('tweet.register') }}">この本にする</a>
+            <a href="{{ route('tweet.registerbook') }}">この本にする</a>
           </div>
         </div>
       </div>

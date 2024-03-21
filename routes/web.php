@@ -50,8 +50,8 @@ Route::get('/home/search', \App\Http\Controllers\Tweet\Search\SearchController::
 ->name('tweet.search');
 
 //登録
-Route::get('/home/register', \App\Http\Controllers\Tweet\Register\RegisterController::class)
-->name('tweet.register');
+Route::get('/home/register', \App\Http\Controllers\Tweet\Registerbook\RegisterbookController::class)
+->name('tweet.registerbook');
 
 //読み聞かせ中
 Route::get('/home/reading', \App\Http\Controllers\Tweet\Reading\ReadingController::class)
