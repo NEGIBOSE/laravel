@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('address');
             $table->string('password');
             $table->rememberToken();
+            $table->unsignedBigInteger('result_id'); // 外部キーのカラムを追加
+            $table->foreign('result_id')->references('id')->on('results'); // 外部キー制約を追加
+            
             $table->timestamps();
         });
     }

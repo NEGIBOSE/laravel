@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
+            // 書籍とカテゴリ履歴マッチしたものをここに
+
+            $table->unsignedBigInteger('illustration_id'); // 外部キーのカラムを追加
+            $table->foreign('illustration_id')->references('id')->on('illustrations'); // 外部キー制約を追加
             $table->timestamps();
         });
     }
