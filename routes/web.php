@@ -48,4 +48,8 @@ Route::get('/home/reading', \App\Http\Controllers\Home\Reading\ReadingController
 Route::get('/home/evolute', \App\Http\Controllers\Home\Evolute\EvoluteController::class)
 ->name('home.evolute');
 
+//共有
+Route::get('/home/share', \App\Http\Controllers\Home\Share\ShareController::class)
+->name('home.share');
+
 require __DIR__.'/auth.php';
