@@ -52,4 +52,12 @@ Route::get('/home/evolute', \App\Http\Controllers\Home\Evolute\EvoluteController
 Route::get('/home/share', \App\Http\Controllers\Home\Share\ShareController::class)
 ->name('home.share');
 
+//成長記録
+Route::get('/home/growth', \App\Http\Controllers\Home\Growth\GrowthController::class)
+->name('home.growth');
+
+//本棚
+Route::get('/home/bookshelf', \App\Http\Controllers\Home\Bookshelf\BookshelfController::class)
+->name('home.bookshelf');
+
 require __DIR__.'/auth.php';
