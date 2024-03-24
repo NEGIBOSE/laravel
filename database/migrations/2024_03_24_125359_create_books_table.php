@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('category_id'); // 外部キーのカラムを追加
-            $table->foreign('category_id')->references('id')->on('categories'); // 外部キー制約を追加
             
         });
     }
