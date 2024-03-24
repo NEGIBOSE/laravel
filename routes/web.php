@@ -44,4 +44,8 @@ Route::get('/home/register', \App\Http\Controllers\Home\Registerbook\Registerboo
 Route::get('/home/reading', \App\Http\Controllers\Home\Reading\ReadingController::class)
 ->name('home.reading');
 
+//進化
+Route::get('/home/evolute', \App\Http\Controllers\Home\Evolute\EvoluteController::class)
+->name('home.evolute');
+
 require __DIR__.'/auth.php';
