@@ -42,7 +42,7 @@
       <div class="home_select">
         <div class="home_select_u">
           <div class="select_text bg_red">
-            <a href="{{ route('tweet.search') }}">読み聞かせ</a>
+            <a href="{{ route('home.search') }}">読み聞かせ</a>
           </div>
           <div class="select_text bg_yellow">
             <a href="#">本棚</a>

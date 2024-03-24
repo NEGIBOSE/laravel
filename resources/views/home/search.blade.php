@@ -310,10 +310,10 @@
       <div class="search_bottom">
         <div class="search_select">
           <div class="select_text select_back">
-            <a href="{{ route('tweet.index') }}">HOME</a>
+            <a href="{{ route('home.index') }}">HOME</a>
           </div>
           <div class="select_text select_register bg_red">
-            <a href="{{ route('tweet.registerbook') }}">この本にする</a>
+            <a href="{{ route('home.registerbook') }}">この本にする</a>
           </div>
         </div>
       </div>

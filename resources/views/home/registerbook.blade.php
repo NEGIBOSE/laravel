@@ -64,10 +64,10 @@
       <div class="register_lower">
         <div class="home_select_u">
           <div class="select_text bg_red">
-          <a href="{{ route('tweet.reading') }}">はい</a>
+          <a href="{{ route('home.reading') }}">はい</a>
           </div>
           <div class="select_text bg_yellow">
-          <a href="{{ route('tweet.search') }}">いいえ</a>
+          <a href="{{ route('home.search') }}">いいえ</a>
           </div>
         </div>
       </div>

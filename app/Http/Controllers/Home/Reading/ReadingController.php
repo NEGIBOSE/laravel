@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Tweet\Reading;
+namespace App\Http\Controllers\Home\Reading;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,6 +12,6 @@ class ReadingController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('tweet.reading');
+        return view('home.reading');
     }
 }

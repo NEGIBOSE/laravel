@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Tweet\Search;
+namespace App\Http\Controllers\Home\Registerbook;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SearchController extends Controller
+class RegisterbookController extends Controller
 {
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request)
     {
-        return view('tweet.search');
+        return view('home.registerbook');
     }
 }

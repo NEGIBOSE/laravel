@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // 7秒後にindex.htmlに遷移する関数
   function redirectToNextPage() {
-    window.location.href = "{{ route('tweet.index') }}"; // 次のページへの遷移
+    window.location.href = "{{ route('home.index') }}"; // 次のページへの遷移
   }
 
   // 7秒後にredirectToNextPage関数を実行

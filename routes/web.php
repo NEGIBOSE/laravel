@@ -41,20 +41,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// //ホーム
-// Route::get('/home', \App\Http\Controllers\Home\IndexController::class)
-// ->name('home.index');
+//ホーム
+Route::get('/home', \App\Http\Controllers\Home\IndexController::class)
+->name('home.index');
 
 //検索
-Route::get('/home/search', \App\Http\Controllers\Tweet\Search\SearchController::class)
-->name('tweet.search');
+Route::get('/home/search', \App\Http\Controllers\Home\Search\SearchController::class)
+->name('home.search');
 
 //登録
-Route::get('/home/register', \App\Http\Controllers\Tweet\Registerbook\RegisterbookController::class)
-->name('tweet.registerbook');
+Route::get('/home/register', \App\Http\Controllers\Home\Registerbook\RegisterbookController::class)
+->name('home.registerbook');
 
 //読み聞かせ中
-Route::get('/home/reading', \App\Http\Controllers\Tweet\Reading\ReadingController::class)
-->name('tweet.reading');
+Route::get('/home/reading', \App\Http\Controllers\Home\Reading\ReadingController::class)
+->name('home.reading');
 
 require __DIR__.'/auth.php';
