@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,11 +10,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::table('results', function (Blueprint $table) {
             $table->id();
-            // 書籍とカテゴリ履歴マッチしたものをここに
-
-            $table->timestamps();
         });
     }
 
@@ -24,6 +20,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('results');
+        Schema::table('results', function (Blueprint $table) {
+            $table->dropForeign(['illustration_id']);
+            $table->dropColumn('illustration_id');
+        });
     }
 };
