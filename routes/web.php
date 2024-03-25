@@ -35,6 +35,8 @@ Route::get('/home', \App\Http\Controllers\Home\IndexController::class)
 //検索
 Route::get('/home/search', \App\Http\Controllers\Home\Search\SearchController::class)
 ->name('home.search');
+Route::post('/save-book-data', 'BookController@saveBookData');
+
 
 //登録
 Route::get('/home/register', \App\Http\Controllers\Home\Registerbook\RegisterbookController::class)
@@ -61,3 +63,5 @@ Route::get('/home/bookshelf', \App\Http\Controllers\Home\Bookshelf\BookshelfCont
 ->name('home.bookshelf');
 
 require __DIR__.'/auth.php';
+
+

@@ -401,6 +401,9 @@ function createClickHandler(thumbnail, title) {
     // reading.htmlにも画像URLを引き渡す
     const readingImage = document.getElementById("readingImage");
     readingImage.src = selectedImageUrl;
+
+    // サーバーにデータを送信
+    sendDataToServer(selectedImageUrl, selectedTitle);
   };
 }
 
