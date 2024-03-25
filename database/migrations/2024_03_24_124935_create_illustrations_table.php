@@ -11,11 +11,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('illustrations', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('category_id'); // 外部キーのカラムを追加
-            $table->foreign('category_id')->references('id')->on('categories'); // 外部キー制約を追加
-            $table->timestamps();
-            // 他のカラムを追加する必要があればここに追加
+            //
         });
     }
 
